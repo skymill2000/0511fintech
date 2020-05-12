@@ -1,6 +1,6 @@
 //#work2 반복문을 통해서 소나타라는 자동차가 배열에 존재하면 '소나타가 배열에 존재합니다' 라는 구문을 출력 (for / if)
 var car = {
-	name : "sonata",
+	name : "sota",
 	ph : "500ph",
 	start : function () {
 		console.log("engine is starting" + ph);
@@ -54,5 +54,11 @@ var car5 = {
 }
 
 var cars = [car, car2, car3, car4, car5];
+
+for(var i = 0; i < cars.length; i++){
+    if(cars[i].name == "sonata"){
+        console.log('find!!');
+    }
+}
 
  
