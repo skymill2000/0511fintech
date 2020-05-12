@@ -1,0 +1,27 @@
+{
+  "name": "example_git",
+  "version": "1.0.0",
+  "description": "",
+  "main": "async.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skymill2000/0511fintech.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skymill2000/0511fintech/issues"
+  },
+  "homepage": "https://github.com/skymill2000/0511fintech#readme"
+}
