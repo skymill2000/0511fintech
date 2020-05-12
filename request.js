@@ -1,4 +1,12 @@
 const request = require('request');
+var parseString = require('xml2js').parseString;
+
+
 request('http://www.weather.go.kr/weather/forecast/mid-term-rss3.jsp?stnld=109', function (error, response, body) {
-  console.log('body:', body); // Print the HTML for the Google homepage.
+//   console.log('body:', body); // Print the HTML for the Google homepage.
+  //#work3 xml2js example
+  parseString(body, function (err, result) {
+    console.dir(result.rss.channel);
+    //#work4
+  });
 });
