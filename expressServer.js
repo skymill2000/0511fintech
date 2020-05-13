@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+var request = require('request');
 
 app.set('views', path.join(__dirname, 'views')); // ejs file location
 app.set('view engine', 'ejs'); //select view templet engine
@@ -50,5 +51,33 @@ app.get('/signup', function(req, res){
     res.render('signup');
 })
 
+app.get('/authResult', function(req, res){
+    var authCode = req.query.code
+    console.log(authCode);
+    var option = {
+        method : "POST",
+        url : "https://testapi.openbanking.or.kr/oauth/2.0/token",
+        header : {
+            'Content-Type' : 'application/x-www-form-urlencoded'
+        },
+        form : {
+            code : authCode,
+            client_id : 'q7kH44ThJwjpvNRg0BbJvE1yxvx5X53DKz1rNgPF',
+            client_secret : 'yVT6irMr2h4ZTHzZY7sDpbvhm1nlOzr4nP7DYRVy',
+            redirect_uri : 'http://localhost:3000/authResult',
+            grant_type : 'authorization_code'
+        }
+    }
+    request(option, function(err, response, body){
+        if(err){
+            console.error(err);
+            throw err;
+        }
+        else {
+            console.log(body);
+        }
+    })
+    //accesstoken get request
+})
 
 app.listen(3000)
