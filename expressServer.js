@@ -44,4 +44,11 @@ app.post('/getData', function(req, res){
     res.json(userData + "!!!!!")
 })
 
+
+//------------------service start //
+app.get('/signup', function(req, res){
+    res.render('signup');
+})
+
+
 app.listen(3000)
