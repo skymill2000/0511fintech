@@ -151,14 +151,14 @@
     <script>
         $("#sendDataBtn").click(function(){
             var inputData = $("#inputData").val();
-            alert(inputData);
             $.ajax({
-              url: "/getTime",
+              url: "/getData",
               type : 'POST',
               data: {
+                userInputData : inputData
               },
               success: function( responseResult ) {
-
+                alert(responseResult);
               }
             });
         })
