@@ -111,12 +111,6 @@
 				<div class="container">
 					<div class="form-divider"></div>
 
-					<div class="form-row">
-						<a href="#" class="button circle block blue mb-15"> <i class="fa fa-facebook"></i> Sign up with FACEBOOK</a>
-					</div>
-					<div class="form-row">	
-						<a href="#" class="button circle block red"><i class="fa fa-google"></i> Sign up with GOOGLE</a>
-					</div>
 
 					<div class="form-divider"></div>
 					<div class="form-label-divider"><span>OR</span></div>
@@ -125,31 +119,38 @@
 					<div class="form-row-group with-icons">
 						<div class="form-row no-padding">
 							<i class="fa fa-user"></i>
-							<input type="text" name="aaa" class="form-element" placeholder="Username" value="john doe">
+							<input type="text" id="userName" class="form-element" placeholder="Username" value="">
 						</div>
 						<div class="form-row no-padding">
 							<i class="fa fa-envelope"></i>
-							<input type="email" name="aaa" class="form-element" placeholder="Email" value="johndoe@example.com">
+							<input type="email" id="userEmail" class="form-element" placeholder="Email" value="">
 						</div>
 						<div class="form-row no-padding">
 							<i class="fa fa-lock"></i>
-							<input type="password" name="aaa" class="form-element" placeholder="Password" value="123456">
+							<input type="password" id="userPassword" class="form-element" placeholder="Password" value="">
+                        </div>
+                        <div class="form-row no-padding">
+							<i class="fa fa-user"></i>
+							<input type="text" id="userAccessToken" class="form-element" placeholder="accessToken" value="">
 						</div>
 						<div class="form-row no-padding">
-							<i class="fa fa-language"></i>
-							<select class="form-element">
-								<option value="">Language</option>
-								<option value="1"  selected>English</option>
-								<option value="2">Spanish</option>
-								<option value="3">Turkish</option>
-							</select>
+							<i class="fa fa-user"></i>
+							<input type="text" id="userRefreshToken" class="form-element" placeholder="refreshToken" value="">
+						</div>
+						<div class="form-row no-padding">
+							<i class="fa fa-user"></i>
+							<input type="text" id="userSeqNo" class="form-element" placeholder="userseqno" value="">
 						</div>
 					</div>
 
+
 					<div class="form-divider"></div>
+					<div class="form-row">
+						<button id="authBtn" class="button circle block blue mb-15"> <i class="fa fa-user"></i> 인증받기</button>
+					</div>
 
 					<div class="form-row">
-						<a href="#" class="button circle block orange">Sign Up</a>
+						<button id="signupBtn" class="button circle block orange">Sign Up</button>
 					</div>
 
 					<div class="form-row txt-center mt-15">
@@ -177,7 +178,8 @@
 
 	<!-- Template global script file. requared all pages -->
 	<script src="js/global.script.js"></script>
-
+    <script>
+    </script>
 	
 </body>
 
