@@ -150,7 +150,17 @@
 	<script src="js/global.script.js"></script>
     <script>
         $("#sendDataBtn").click(function(){
-            alert('btn click');
+            var inputData = $("#inputData").val();
+            alert(inputData);
+            $.ajax({
+              url: "/getTime",
+              type : 'POST',
+              data: {
+              },
+              success: function( responseResult ) {
+
+              }
+            });
         })
     </script>
 	

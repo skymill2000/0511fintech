@@ -30,4 +30,13 @@ app.get('/dataSend', function(req, res){
     res.render('dataSend');
 })
 
+app.post('/getTime', function(req, res){
+    var nowTime = new Date();
+    res.json(nowTime);
+})
+
+app.post('/getData', function(req, res){
+    var userData = req.body.userInputData;
+})
+
 app.listen(3000)
