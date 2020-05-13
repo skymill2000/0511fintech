@@ -74,10 +74,11 @@ app.get('/authResult', function(req, res){
             throw err;
         }
         else {
-            console.log(body);
+            var accessRequestResult = JSON.parse(body);
+            console.log(accessRequestResult);
+            res.render('resultChild', {data : accessRequestResult} )
         }
     })
-    //accesstoken get request
 })
 
 app.listen(3000)
