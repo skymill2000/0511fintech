@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 var request = require('request');
+var mysql = require('mysql');
 
 app.set('views', path.join(__dirname, 'views')); // ejs file location
 app.set('view engine', 'ejs'); //select view templet engine
@@ -11,6 +12,15 @@ app.use(express.static(path.join(__dirname, 'public')));//to use static asset
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
+var connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : '1q2w3e4r',
+    database : 'fintech'
+  });
+
+  connection.connect();
+  
 app.get('/', function (req, res) {
     var title = "javascript"
     res.send('<html><h1>'+title+'</h1><h2>contents</h2></html>')
@@ -80,5 +90,17 @@ app.get('/authResult', function(req, res){
         }
     })
 })
+
+app.post('/signup', function(req, res){
+    //data req get db store
+    var userName = req.body.userName
+    var userEmail = req.body.userEmail
+    var userPassword = req.body.userPassword
+    var userAccessToken = req.body.userAccessToken
+    var userRefreshToken = req.body.userRefreshToken
+    var userSeqNo = req.body.userSeqNo
+    console.log(userName, userAccessToken, userSeqNo);
+})
+
 
 app.listen(3000)
