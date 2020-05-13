@@ -26,5 +26,8 @@ app.get('/design', function(req, res){
 })
 
 //datasend Router add
+app.get('/dataSend', function(req, res){
+    res.render('dataSend');
+})
 
 app.listen(3000)
