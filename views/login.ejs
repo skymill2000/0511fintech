@@ -117,18 +117,18 @@
 					<div class="form-row-group with-icons">
 						<div class="form-row no-padding">
 							<i class="fa fa-envelope"></i>
-							<input type="email" name="aaa" class="form-element" placeholder="Username or Email">
+							<input type="email" id="userEmail" name="aaa" class="form-element" placeholder="Username or Email">
 						</div>
 						<div class="form-row no-padding">
 							<i class="fa fa-lock"></i>
-							<input type="password" name="aaa" class="form-element" placeholder="Password">
+							<input type="password" id="userPassword" name="aaa" class="form-element" placeholder="Password">
 						</div>
 					</div>
 
 					<div class="form-divider"></div>
 
 					<div class="form-row">
-						<a href="Javascript:void(0);" class="button circle block orange">Login</a>
+						<button type="button" id="loginBtn" class="button circle block orange">Login</a>
 					</div>
 
 					<div class="form-row txt-center mt-15">
@@ -156,7 +156,29 @@
 
 	<!-- Template global script file. requared all pages -->
 	<script src="js/global.script.js"></script>
-
+    <script>
+        $("#loginBtn").click(function(){
+            $.ajax({
+                url:'http://localhost:3000/login',
+                type : 'POST',
+                data : {
+                    userEmail : $("#userEmail").val(),
+                    userPassword : $("#userPassword").val(),
+                },
+                success:function(data){
+					if(data == '2'){
+                        alert('passwor is not correct')
+					}
+					else if(data == '3') {
+                        alert('there is no email')
+                    }
+                    else {
+                        sessionStorage.setItem('jwtToken', data);
+                    }
+                }
+            })
+        })
+    </script>
 	
 </body>
 
