@@ -4,6 +4,7 @@ const path = require('path')
 var jwt = require('jsonwebtoken');
 var request = require('request');
 var mysql = require('mysql');
+var auth = require('./lib/auth');
 
 app.set('views', path.join(__dirname, 'views')); // ejs file location
 app.set('view engine', 'ejs'); //select view templet engine
@@ -54,6 +55,10 @@ app.post('/getData', function(req, res){
     var userData = req.body.userInputData;
     console.log('userData = ', userData);
     res.json(userData + "!!!!!")
+})
+
+app.post('/authTest',auth, function(req, res){
+    res.json('login user!!')
 })
 
 
@@ -125,6 +130,7 @@ app.post('/signup', function(req, res){
 app.post('/login', function(req, res){
     var userEmail = req.body.userEmail;
     var userPassword = req.body.userPassword;
+    console.log(userEmail, userPassword)
     var sql = "SELECT * FROM user WHERE email = ?";
     connection.query(sql, [userEmail], function(err, result){
         if(err){
@@ -133,6 +139,7 @@ app.post('/login', function(req, res){
             throw err;
         }
         else {
+            console.log(result);
             if(result.length == 0){
                 res.json(3)
             }
