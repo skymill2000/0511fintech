@@ -61,6 +61,7 @@ app.get('/signup', function(req, res){
     res.render('signup');
 })
 
+
 app.get('/authResult', function(req, res){
     var authCode = req.query.code
     console.log(authCode);
@@ -93,12 +94,12 @@ app.get('/authResult', function(req, res){
 
 app.post('/signup', function(req, res){
     //data req get db store
-    var userName = req.body.userName
-    var userEmail = req.body.userEmail
-    var userPassword = req.body.userPassword
-    var userAccessToken = req.body.userAccessToken
-    var userRefreshToken = req.body.userRefreshToken
-    var userSeqNo = req.body.userSeqNo
+    var userName = req.body.userName;
+    var userEmail = req.body.userEmail;
+    var userPassword = req.body.userPassword;
+    var userAccessToken = req.body.userAccessToken;
+    var userRefreshToken = req.body.userRefreshToken;
+    var userSeqNo = req.body.userSeqNo;
     console.log(userName, userAccessToken, userSeqNo);
     var sql = "INSERT INTO fintech.user (name, email, password, accesstoken, refreshtoken, userseqno) VALUES (?,?,?,?,?,?)"
     connection.query(
