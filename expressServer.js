@@ -176,6 +176,29 @@ app.post('/login', function(req, res){
     })
 })
 
+app.post('/list', function(req, res){
+    //
+    // api response body 
+    var option = {
+        method : "GET",
+        url : "https://testapi.openbanking.or.kr/v2.0/user/me?user_seq_no=1100034736",
+        header : {
+        },
+        qs : {
+        }
+    }
+    request(option, function(err, response, body){
+        if(err){
+            console.error(err);
+            throw err;
+        }
+        else {
+            var accessRequestResult = JSON.parse(body);
+            console.log(accessRequestResult);
+            res.json(accessRequestResult)
+        }
+    })
+})
 
 
 app.listen(3000)
