@@ -181,10 +181,12 @@ app.post('/list', function(req, res){
     // api response body 
     var option = {
         method : "GET",
-        url : "https://testapi.openbanking.or.kr/v2.0/user/me?user_seq_no=1100034736",
-        header : {
+        url : "https://testapi.openbanking.or.kr/v2.0/user/me",
+        headers : {
+            Authorization : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiIxMTAwMDM0NzM2Iiwic2NvcGUiOlsiaW5xdWlyeSIsImxvZ2luIiwidHJhbnNmZXIiXSwiaXNzIjoiaHR0cHM6Ly93d3cub3BlbmJhbmtpbmcub3Iua3IiLCJleHAiOjE1OTcxMzA3ODAsImp0aSI6IjFlNWYyYWZhLTQxMTAtNDRmMS1iYzJlLTcyNGVkMTcwNTQ0OCJ9.AqDnigHaLRrgx7twoCMEct_mHrAbW5pIo7xzh-2pLTQ'
         },
         qs : {
+            user_seq_no : "1100034736"
         }
     }
     request(option, function(err, response, body){
