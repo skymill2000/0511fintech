@@ -57,8 +57,8 @@ app.post('/getData', function(req, res){
     res.json(userData + "!!!!!")
 })
 
-app.post('/authTest',auth, function(req, res){
-    res.json('login user!!')
+app.post('/authTest', auth, function(req, res){
+    res.json(req.decoded);
 })
 
 
