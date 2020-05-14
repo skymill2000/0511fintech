@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+var jwt = require('jsonwebtoken');
 var request = require('request');
 var mysql = require('mysql');
 
@@ -138,7 +139,23 @@ app.post('/login', function(req, res){
             else {
                 var dbPassword = result[0].password;
                 if(dbPassword == userPassword){
-                    //login sucess
+                    var tokenKey = "f@i#n%tne#ckfhlafkd0102test!@#%"
+                    jwt.sign(
+                      {
+                          userId : result[0].id,
+                          userEmail : result[0].email
+                      },
+                      tokenKey,
+                      {
+                          expiresIn : '10d',
+                          issuer : 'fintech.admin',
+                          subject : 'user.login.info'
+                      },
+                      function(err, token){
+                          console.log('로그인 성공', token)
+                          res.json(token)
+                      }
+                    )            
                 }
                 else {
                     res.json(2);
