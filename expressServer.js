@@ -61,6 +61,10 @@ app.get('/signup', function(req, res){
     res.render('signup');
 })
 
+app.get('/login', function(req, res){
+    res.render('login');
+})
+
 
 app.get('/authResult', function(req, res){
     var authCode = req.query.code
@@ -114,6 +118,33 @@ app.post('/signup', function(req, res){
             else {
                 res.json(1)
             }
+    })
+})
+
+app.post('/login', function(req, res){
+    var userEmail = req.body.userEmail;
+    var userPassword = req.body.userPassword;
+    var sql = "SELECT * FROM user WHERE email = ?";
+    connection.query(sql, [userEmail], function(err, result){
+        if(err){
+            console.error(err);
+            res.json(0);
+            throw err;
+        }
+        else {
+            if(result.length == 0){
+                res.json(3)
+            }
+            else {
+                var dbPassword = result[0].password;
+                if(dbPassword == userPassword){
+                    //login sucess
+                }
+                else {
+                    res.json(2);
+                }
+            }
+        }
     })
 })
 
