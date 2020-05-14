@@ -71,6 +71,10 @@ app.get('/login', function(req, res){
     res.render('login');
 })
 
+app.get('/main', function(req, res){
+    res.render('main');
+})
+
 
 app.get('/authResult', function(req, res){
     var authCode = req.query.code
@@ -171,6 +175,7 @@ app.post('/login', function(req, res){
         }
     })
 })
+
 
 
 app.listen(3000)
