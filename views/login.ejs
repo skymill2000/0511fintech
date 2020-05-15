@@ -174,7 +174,8 @@
                         alert('there is no email')
                     }
                     else {
-                        sessionStorage.setItem('jwtToken', data);
+						sessionStorage.setItem('jwtToken', data);
+						window.location.href = '/main'
                     }
                 }
             })
