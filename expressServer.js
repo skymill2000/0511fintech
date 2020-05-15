@@ -217,6 +217,15 @@ app.post('/list',auth, function(req, res){
     })
 })
 
+app.post("/balance", auth, function(req, res){
+    var userId = req.decoded.userId;
+    var fin_use_num = req.body.fin_use_num;
+
+    var countnum = Math.floor(Math.random() * 1000000000) + 1;
+    var transId = "T991599190U" + countnum; //이용기과번호 본인것 입력
+  
+})
+
 
 
 
