@@ -282,7 +282,7 @@
         fetchUserData();
         function fetchUserData(){
             $.ajax({
-                url:'http://localhost:3000/list',
+                url:'/list',
                 type : 'POST',
                 headers : {
                     'ourtoken' : jwtToken

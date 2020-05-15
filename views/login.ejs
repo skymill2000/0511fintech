@@ -159,7 +159,7 @@
     <script>
         $("#loginBtn").click(function(){
             $.ajax({
-                url:'http://localhost:3000/login',
+                url:'/login',
                 type : 'POST',
                 data : {
                     userEmail : $("#userEmail").val(),

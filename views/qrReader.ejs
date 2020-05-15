@@ -147,58 +147,58 @@
 <script src="js/global.script.js"></script>
 <script>
     let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-    // $.ajax({
-    //     url:'http://localhost:3000/withdraw',
-    //     type : 'POST',
-    //     headers : {
-    //         'ourtoken' : sessionStorage.getItem('jwtToken')
-    //     },
-    //     data : {
-    //         amount : "1000",
-    //         fin_use_num : "199159919057870970470954"
-    //     },
-    //     success:function(data){
-    //         if(data == 1){
-    //             alert('결재완료')
-    //         }
-    //         else {
-    //             alert(data);
-    //         }
-    //     }
-    // });
-
-    scanner.addListener('scan', function (content) {
-        alert(content);
-        var price = prompt("가격을 입력해 주세요")
-        $.ajax({
-            url:'http://localhost:3000/withdraw',
-            type : 'POST',
-            headers : {
-                'ourtoken' : sessionStorage.getItem('jwtToken')
-            },
-            data : {
-                amount : price,
-                fin_use_num : content
-            },
-            success:function(data){
-                if(data == 1){
-                    alert('결재완료')
-                }
-                else {
-                    alert(data);
-                }
+    $.ajax({
+        url:'http://localhost:3000/withdraw',
+        type : 'POST',
+        headers : {
+            'ourtoken' : sessionStorage.getItem('jwtToken')
+        },
+        data : {
+            amount : "1000",
+            fin_use_num : "199159919057870971744807"
+        },
+        success:function(data){
+            if(data == 1){
+                alert('결재완료')
             }
-        })
-    });
-    Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-            scanner.start(cameras[0]);
-        } else {
-            console.error('No cameras found.');
+            else {
+                alert(data);
+            }
         }
-    }).catch(function (e) {
-        console.error(e);
     });
+
+    // scanner.addListener('scan', function (content) {
+    //     alert(content);
+    //     var price = prompt("가격을 입력해 주세요")
+    //     $.ajax({
+    //         url:'/withdraw',
+    //         type : 'POST',
+    //         headers : {
+    //             'ourtoken' : sessionStorage.getItem('jwtToken')
+    //         },
+    //         data : {
+    //             amount : price,
+    //             fin_use_num : content
+    //         },
+    //         success:function(data){
+    //             if(data == 1){
+    //                 alert('결재완료')
+    //             }
+    //             else {
+    //                 alert(data);
+    //             }
+    //         }
+    //     })
+    // });
+    // Instascan.Camera.getCameras().then(function (cameras) {
+    //     if (cameras.length > 0) {
+    //         scanner.start(cameras[0]);
+    //     } else {
+    //         console.error('No cameras found.');
+    //     }
+    // }).catch(function (e) {
+    //     console.error(e);
+    // });
 </script>
 
 </body>
